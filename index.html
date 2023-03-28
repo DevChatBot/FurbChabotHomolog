@@ -35,13 +35,10 @@
       }else if(acessChat === null){
           localStorage.setItem('chatbot-code', null);
       }
-      var paramChat;
-      var paramChatConcat;
-      paramChat = localStorage.getItem('chatbot-code');
-      paramChatConcat = paramChat;
+      var paramChat = localStorage.getItem('chatbot-code');
       let cronchatToken = '5224675044:AAHAAQHv_aKR-FFsktN10-mzJiWWp6x0tMU';
       let hostURL = 'https://cronchatfurb.cronapp.io/get-chat';
-      let chatbotURL = `${hostURL}?extraParms=${code}&token=${cronchatToken}`;
+      let chatbotURL = `${hostURL}?extraParms=${paramChat}&token=${cronchatToken}`;
       let scriptHTML = document.createElement("script");
       scriptHTML.src = chatbotURL;
       scriptHTML.type = 'text/javascript'
