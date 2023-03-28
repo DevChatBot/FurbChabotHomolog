@@ -28,14 +28,17 @@
     <script type="text/javascript">
       var url_string = window.location.href;
       var url = new URL(url_string);
-      var code = url.searchParams.get("code");
-      if(code !== null){
-        localStorage.setItem('code', code);
-      }else if(code === null){
-          localStorage.setItem('code', null);
+      var notRa = 'semRa';
+      var acessChat = url.searchParams.get("code");
+      if(acessChat !== null){
+          localStorage.setItem('chatbot-code', acessChat);
+      }else if(acessChat === null){
+          localStorage.setItem('chatbot-code', null);
       }
-      var paramChat = localStorage.getItem('code');
-      var paramChatConcat = paramChat;
+      var paramChat;
+      var paramChatConcat;
+      paramChat = localStorage.getItem('chatbot-code');
+      paramChatConcat = paramChat;
       let cronchatToken = '5224675044:AAHAAQHv_aKR-FFsktN10-mzJiWWp6x0tMU';
       let hostURL = 'https://cronchatfurb.cronapp.io/get-chat?token=';
       let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChatConcat}`;
@@ -44,14 +47,15 @@
       scriptHTML.type = 'text/javascript'
       document.body.appendChild(scriptHTML);
       window.onload = function () {
-      if (code != null) {
+      if (acessChat != null) {
           setTimeout(function(){
               clickBtnChat()
             }, 1000);
          }
       }
       function clickBtnChat(){
-          document.querySelector('.chat-button').click();
+          var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
+          document.getElementById(btnConversationId).click();
       }
     </script>
   </body>
