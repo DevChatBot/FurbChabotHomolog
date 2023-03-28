@@ -31,7 +31,7 @@
       var code = url.searchParams.get("code");
       if(code !== null){
         localStorage.setItem('code', code);
-      }else if(acessChat === null){
+      }else if(code === null){
           localStorage.setItem('code', null);
       }
       var paramChat = localStorage.getItem('code');
@@ -44,7 +44,7 @@
       scriptHTML.type = 'text/javascript'
       document.body.appendChild(scriptHTML);
       window.onload = function () {
-      if (acessChat != null) {
+      if (code != null) {
           setTimeout(function(){
               clickBtnChat()
             }, 1000);
