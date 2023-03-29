@@ -38,7 +38,7 @@
       
       var codigo = localStorage.getItem('chatbot-code')
       // Enconde em Base64
-      var paramChat = codigo?btoa(codigo):null;
+      var paramChat = codigo?btoa(codigo).replace('=','_'):null;
       
       let cronchatToken = '5224675044:AAHAAQHv_aKR-FFsktN10-mzJiWWp6x0tMU';
       let hostURL = 'https://cronchatfurb.cronapp.io/get-chat';
