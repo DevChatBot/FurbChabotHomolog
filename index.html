@@ -33,7 +33,7 @@
       if(acessChat !== null){
           localStorage.setItem('chatbot-code', acessChat);
       }else if(acessChat === null){
-          localStorage.setItem('chatbot-code', null);
+          localStorage.setItem('chatbot-code', '');
       }
       
       var codigo = localStorage.getItem('chatbot-code')
